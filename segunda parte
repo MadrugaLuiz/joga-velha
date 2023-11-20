@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo-velha</title>
+    <style>
+        td{
+            color: white;
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 80px;
+        }
+        td:hover{
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jogo da Velha</h1>
+    <table>
+        <tr>
+            <td onclick="marcar(0)"></td>
+            <td onclick="marcar(1)"></td>
+            <td onclick="marcar(2)"></td>
+        </tr>
+        <tr>
+            <td onclick="marcar(3)"></td>
+            <td onclick="marcar(4)"></td>
+            <td onclick="marcar(5)"></td>
+        </tr>
+        <tr>
+            <td onclick="marcar(6)"></td>
+            <td onclick="marcar(7)"></td>
+            <td onclick="marcar(8)"></td>
+        </tr>
+    </table>
+    <script>
+        var tabela = ["", "", "", "", "", "", "", "", ""]
+        var jogador = "X"
+
+        function marcar(indice) {
+            tabela[indice] = jogador
+            if (jogador == "X") {
+                jogador = "O"
+            } else {
+                jogador = "X"
+            }
+            render()
+        }
+
+        function render() {
+            const tds = document.querySelectorAll("td")
+
+            var indice = 0
+            while(indice < tabela.length) {
+                tds[indice].innerHTML = tabela[indice]
+                indice++
+            }
+        }
+
+        render()
+    </script>
+</body>
+
+</html>
